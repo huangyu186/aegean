@@ -1,0 +1,49 @@
+<span id="photos">&nbsp;</span>
+<section>
+  <h1 class="sect-head bg-blue">照片</h1>
+  <div class="container-fluid">
+
+    <p>
+      {% if site.wedding.albums.size > 1 %}
+      <span class="btn-group" data-toggle="buttons-radio">
+        {% for album in site.wedding.albums %}
+          {% if forloop.first %}
+            <a href="#photos-pane-{{forloop.index | plus: 1}}" type="button" data-toggle="tab" class="btn active">{{album.name}}</a>
+          {% else %}
+            <a href="#photos-pane-{{forloop.index | plus: 1}}" type="button" data-toggle="tab" class="btn">{{album.name}}</a>
+          {% endif %}
+        {% endfor %}
+      </span>
+      {% endif %}
+    </p>
+
+    <div class="tab-content">
+      {% for album in site.wedding.albums %}
+        {% capture index %}{{forloop.index | plus: 1}}{% endcapture %}
+        {% if forloop.first %}
+          <div class="tab-pane active" id="photos-pane-{{index}}">
+        {% else %}
+          <div class="tab-pane" id="photos-pane-{{index}}">
+        {% endif %}
+          <ul class="thumbnails gallery">
+            {% for photo in album.photos %}
+            <li>
+              <a href="{{photo.large_url}}" class="thumbnail" rel="prettyPhoto[{{index}}]"><img src="{{photo.thumb_url}}"/></a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<script type="text/javascript">
+  function showColorbox(){
+    $(".gallery a[rel^='prettyPhoto']").colorbox({
+      maxWidth: '100%',
+      maxHeight: '100%'
+    });
+  }
+</script>
