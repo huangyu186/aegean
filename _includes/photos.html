@@ -28,7 +28,7 @@
           <ul class="thumbnails gallery">
             {% for photo in album.photos %}
             <li>
-              <a href="{{photo.large_url}}" class="thumbnail" rel="prettyPhoto[{{index}}]"><img src="{{photo.thumb_url}}"/></a>
+              <a href="{{photo.large_url}}" class="thumbnail" rel="album{{index}}"><img src="{{photo.thumb_url}}"/></a>
             </li>
             {% endfor %}
           </ul>
@@ -38,12 +38,3 @@
 
   </div>
 </section>
-
-<script type="text/javascript">
-  function showColorbox(){
-    $(".gallery a[rel^='prettyPhoto']").colorbox({
-      maxWidth: '100%',
-      maxHeight: '100%'
-    });
-  }
-</script>

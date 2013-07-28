@@ -12,7 +12,11 @@ $(function(){
     return false;
   });
 
-  showColorbox();
+  $(".gallery a").fancybox({
+    transitionIn: 'elastic',
+    transitionOut: 'elastic'
+  });
+
 
   var script = document.createElement("script");
   script.src = "http://api.map.baidu.com/api?v=1.4&callback=showMap";
