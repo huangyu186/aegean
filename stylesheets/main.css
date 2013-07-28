@@ -140,6 +140,7 @@ section {
 }
 
 #logo img {
+  height: 40px;
   margin-top: 0px;
   display: inline-block;
 }
