@@ -104,6 +104,14 @@ body {
     background-color: #ccc;
 }
 
+::-moz-selection { background: #FF5E99; color:#fff; text-shadow: none; }
+::selection { background:#FF5E99; color:#fff; text-shadow: none; }
+
+label.error {
+  color: red;
+  display: inline-block;
+  margin-left: 5px;
+}
 
 /**************** sections **********************/
 section {
