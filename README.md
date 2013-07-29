@@ -1,4 +1,4 @@
-# classic theme
+# Aegean theme
 
 ## 使用说明
 
